@@ -1,6 +1,6 @@
-from ReferenceBandit import ReferenceBandit
-from MyBandit import Bandit
-import simulator as simulator
+from . import simulator
+from .ReferenceBandit import ReferenceBandit
+from .MyBandit import Bandit
 import random
 import math
 
