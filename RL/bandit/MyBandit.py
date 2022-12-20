@@ -1,10 +1,12 @@
 # epsilon-greedy example implementation of a multi-armed bandit
 import random
 
+
 class Bandit:
     """
     Generic epsilon-greedy bandit that you need to improve
     """
+
     def __init__(self, arms, epsilon=0.1):
         """
         Initiates the bandits
@@ -44,3 +46,11 @@ class Bandit:
         self.frequencies[arm_index] = frequency
         expected_value = sum / frequency
         self.expected_values[arm_index] = expected_value
+        # Creates a epislon decay
+        self.epsilon *= 0.98
+        self.thanos_snap()
+
+    def thanos_snap(self):
+        for i in range(1, len(self.arms)):
+            if self.sums[i] < -250:
+                self.sums[i].pop
